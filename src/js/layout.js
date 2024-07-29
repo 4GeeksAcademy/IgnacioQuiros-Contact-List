@@ -9,13 +9,11 @@ import EditContact from "./views/EditContact";
 import NewContact from "./views/NewContact";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import  Navbar  from "./component/Navbar";
+import  Footer  from "./component/Footer";
 
-//create your first component
+
 const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
 	return (
@@ -26,7 +24,7 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/new-contact" element={<NewContact />} />
-						<Route path="/edit-contact" element={<EditContact />} />
+						<Route path="/edit-contact/:index" element={<EditContact />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />
@@ -37,7 +35,3 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
-
-
-{/* <Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} /> */}
